@@ -41,4 +41,4 @@ def execute(request):
     for step_delta in step_count_delta_obj['bucket'][0]['dataset'][0]['point']:
         steps = steps + step_delta['value'][0]['intVal']
 
-    return steps
+    return { 'steps': steps }
