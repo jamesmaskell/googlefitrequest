@@ -22,6 +22,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Run tests with pytest
+      run: pytest
+
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
       with:
