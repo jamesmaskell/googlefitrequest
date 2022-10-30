@@ -1,6 +1,7 @@
 import datetime
 from unittest import TestCase
 from unittest.mock import MagicMock, patch
+from zoneinfo import ZoneInfo
 import main
 
 class TestMain(TestCase):
@@ -17,7 +18,7 @@ class TestMain(TestCase):
             'startTimeMillis': 1666911600000
         }
 
-        result = main.get_post_body(datetime.datetime(2022, 10, 28, 1, 2, 3, 4))
+        result = main.get_post_body(datetime.datetime(2022, 10, 28, 1, 0, 0, 0, tzinfo=ZoneInfo('GB')))
 
         assert result == expected
 

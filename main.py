@@ -1,10 +1,11 @@
 from requests import post
 from datetime import datetime, timedelta
 from google.cloud import datastore
+from zoneinfo import ZoneInfo
 
 def get_post_body(current_datetime):
 
-    epoch_today_start = current_datetime.replace(hour=0, minute=0, second=0, microsecond=0)
+    epoch_today_start = current_datetime.replace(hour=0, minute=0, second=0, microsecond=0, tzinfo=ZoneInfo('GB'))
     epoch_today_end = epoch_today_start + timedelta(milliseconds=86399999)
 
     start = int(epoch_today_start.timestamp()) * 1000
